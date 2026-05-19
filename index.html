@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NewLife Care Hospital</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    line-height:1.6;
+    background:#f4fbff;
+}
+
+/* HEADER */
+
+header{
+    background:#004e64;
+    color:white;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 50px;
+
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+
+    box-shadow:0 3px 10px rgba(0,0,0,0.2);
+
+    flex-wrap:wrap;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:bold;
+    color:#ffd166;
+}
+
+nav{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ffd166;
+}
+
+/* HERO */
+
+.hero{
+    height:100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url('https://images.unsplash.com/photo-1579684385127-1ef15d508118');
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+    color:white;
+
+    padding:20px;
+}
+
+.hero-content h1{
+    font-size:65px;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    font-size:24px;
+    margin-bottom:30px;
+}
+
+.hero-content button{
+    padding:15px 35px;
+    border:none;
+    background:#ffd166;
+    color:black;
+    font-size:18px;
+    border-radius:6px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.hero-content button:hover{
+    background:rgb(10, 199, 66);
+}
+
+/* COMMON */
+
+section{
+    padding:80px 50px;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:45px;
+    font-size:42px;
+    color:#004e64;
+}
+.overlay{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal{
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    width:320px;
+    position:relative;
+}
+
+.modal input,
+.modal select{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+}
+
+.modal button{
+    width:100%;
+    padding:10px;
+    background:#2b7cff;
+    color:#fff;
+    border:none;
+    cursor:pointer;
+}
+
+.close-btn{
+    position:absolute;
+    top:10px;
+    right:10px;
+    width:auto;
+    background:red;
+    padding:5px 10px;
+}
+
+/* ABOUT */
+
+.about-container{
+    display:flex;
+    gap:40px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.about-text{
+    flex:1;
+}
+
+.about-text p{
+    margin-bottom:20px;
+    font-size:18px;
+}
+
+.about-image{
+    flex:1;
+}
+
+.about-image img{
+    width:100%;
+    border-radius:15px;
+}
+
+/* SERVICES */
+
+.services{
+    display:flex;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.service-box{
+    flex:1;
+    min-width:260px;
+
+    background:white;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:0 5px 12px rgba(0,0,0,0.1);
+
+    transition:0.3s;
+}
+
+.service-box:hover{
+    transform:translateY(-10px);
+}
+
+.service-box img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+}
+
+.service-content{
+    padding:25px;
+    text-align:center;
+}
+
+.service-content button{
+    margin-top:15px;
+    padding:10px 22px;
+    border:none;
+    background:#004e64;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+/* FEATURES */
+
+.features{
+    display:flex;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.feature-box{
+    flex:1;
+    min-width:250px;
+
+    background:#dff6ff;
+
+    padding:35px;
+
+    border-radius:15px;
+
+    text-align:center;
+}
+
+.feature-box h3{
+    margin-bottom:15px;
+}
+
+/* DOCTORS */
+
+.doctor-container{
+    display:flex;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.doctor-card{
+    flex:1;
+    min-width:250px;
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    text-align:center;
+
+    box-shadow:0 5px 12px rgba(0,0,0,0.1);
+}
+
+.doctor-card img{
+    width:160px;
+    height:160px;
+
+    border-radius:50%;
+    object-fit:cover;
+
+    margin-bottom:15px;
+}
+
+.doctor-card button{
+    margin-top:15px;
+    padding:10px 20px;
+    border:none;
+    background:#ffd166;
+    border-radius:5px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* APPOINTMENT */
+
+.appointment{
+    background:#caf0f8;
+}
+
+form{
+    max-width:550px;
+    margin:auto;
+
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+input,
+textarea,
+select{
+    padding:15px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:16px;
+}
+
+form button{
+    padding:15px;
+    border:none;
+    background:#004e64;
+    color:white;
+    font-size:18px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+/* GALLERY */
+
+.gallery{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.gallery img{
+    flex:1;
+    min-width:250px;
+
+    height:260px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+}
+
+/* TESTIMONIALS */
+
+.testimonials{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.testimonial-box{
+    flex:1;
+    min-width:250px;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 12px rgba(0,0,0,0.1);
+}
+
+/* FOOTER */
+
+footer{
+    background:#012a36;
+    color:white;
+    text-align:center;
+    padding:35px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    header{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    nav{
+        justify-content:center;
+    }
+
+    .hero-content h1{
+        font-size:40px;
+    }
+
+    .hero-content p{
+        font-size:18px;
+    }
+
+    .about-container,
+    .services,
+    .features,
+    .doctor-container,
+    .gallery,
+    .testimonials{
+        flex-direction:column;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        New Life Care
+    </div>
+
+    <nav>
+
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#doctors">Doctors</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>
+            Your Health Is Our Priority
+        </h1>
+
+        <p>
+            Providing compassionate healthcare services
+            with world-class medical expertise and modern facilities.
+        </p>
+
+        <!-- BUTTON -->
+<button onclick="openForm()">Book Consultation</button>
+
+<!-- OVERLAY MODAL -->
+<div id="overlay" class="overlay">
+
+    <div class="modal">
+
+        <h2>Book Consultation</h2>
+
+        <form id="consultationForm">
+
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="email" id="email" placeholder="Email Address" required>
+            <input type="tel" id="phone" placeholder="Phone Number" required>
+
+            <select id="department" required>
+                <option value="">Select Department</option>
+                <option value="cardiology">Cardiology</option>
+                <option value="neurology">Neurology</option>
+                <option value="orthopedics">Orthopedics</option>
+            </select>
+
+            <button type="submit">Submit</button>
+
+        </form>
+
+        <button class="close-btn" onclick="closeForm()">X</button>
+
+    </div>
+
+</div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <h2>About NewLife Care</h2>
+
+    <div class="about-container">
+
+        <div class="about-text">
+
+            <p>
+                NewLife Care Hospital is dedicated
+                to offering personalized treatments,
+                emergency care, diagnostics,
+                and wellness programs.
+            </p>
+
+            <p>
+                Our mission is to improve patient lives
+                through advanced healthcare technologies
+                and compassionate support.
+            </p>
+
+        </div>
+
+        <div class="about-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=1200&q=80"
+                alt="Modern Hospital Interior"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section id="services">
+
+    <h2>Healthcare Services</h2>
+
+    <div class="services">
+
+        <div class="service-box">
+
+            <img
+                src="https://images.unsplash.com/photo-1584515933487-779824d29309"
+                alt="Emergency Service"
+            >
+
+            <div class="service-content">
+
+                <h3>Emergency Unit</h3>
+
+                <p>
+                    24/7 emergency medical response
+                    and trauma care support.
+                </p>
+
+                <button onclick="alert('Emergency Support Activated')">
+                    Learn More
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="service-box">
+
+            <img
+                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef"
+                alt="Heart Care"
+            >
+
+            <div class="service-content">
+
+                <h3>Heart Care</h3>
+
+                <p>
+                    Specialized cardiology treatments
+                    with expert heart specialists.
+                </p>
+
+                <button onclick="alert('Cardiology Details Opened')">
+                    Learn More
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="service-box">
+
+            <img
+                src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b"
+                alt="Laboratory"
+            >
+
+            <div class="service-content">
+
+                <h3>Diagnostic Lab</h3>
+
+                <p>
+                    Fast and accurate laboratory testing
+                    using modern medical equipment.
+                </p>
+
+                <button onclick="alert('Laboratory Services Viewed')">
+                    Learn More
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section>
+
+    <h2>Why Patients Trust Us</h2>
+
+    <div class="features">
+
+        <div class="feature-box">
+
+            <h3>Advanced Technology</h3>
+
+            <p>
+                Modern healthcare infrastructure
+                for accurate diagnosis and treatment.
+            </p>
+
+        </div>
+
+        <div class="feature-box">
+
+            <h3>Expert Specialists</h3>
+
+            <p>
+                Highly trained doctors
+                across multiple departments.
+            </p>
+
+        </div>
+
+        <div class="feature-box">
+
+            <h3>24/7 Patient Care</h3>
+
+            <p>
+                Dedicated support team available
+                day and night for patients.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- DOCTORS -->
+
+<section id="doctors">
+
+    <h2>Medical Specialists</h2>
+
+    <div class="doctor-container">
+
+        <div class="doctor-card">
+
+            <img
+                src="https://randomuser.me/api/portraits/women/52.jpg"
+                alt="Doctor"
+            >
+
+            <h3>Dr. Amelia Reed</h3>
+
+            <p>Cardiology Expert</p>
+
+            <button onclick="alert('Doctor Profile Viewed')">
+                View Profile
+            </button>
+
+        </div>
+
+        <div class="doctor-card">
+
+            <img
+                src="https://randomuser.me/api/portraits/men/62.jpg"
+                alt="Doctor"
+            >
+
+            <h3>Dr. Ethan Blake</h3>
+
+            <p>Neurology Specialist</p>
+
+            <button onclick="alert('Neurology Department Opened')">
+                View Profile
+            </button>
+
+        </div>
+
+        <div class="doctor-card">
+
+            <img
+                src="https://randomuser.me/api/portraits/women/45.jpg"
+                alt="Doctor"
+            >
+
+            <h3>Dr. Sophia Carter</h3>
+
+            <p>Orthopedic Surgeon</p>
+
+            <button onclick="alert('Orthopedic Services Viewed')">
+                View Profile
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- APPOINTMENT -->
+
+<section class="appointment" id="contact">
+
+    <h2>Contact</h2>
+
+    <form>
+
+        <input type="text" placeholder="Enter Full Name" required>
+
+        <input type="email" placeholder="Enter Email Address" required>
+
+
+        <textarea rows="5" placeholder="Write Your Health Concern"></textarea>
+
+        <button type="submit">
+            Submit Request
+        </button>
+
+    </form>
+
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+    <h2>Hospital Gallery</h2>
+
+    <div class="gallery">
+
+        <img
+            src="https://images.unsplash.com/photo-1516549655169-df83a0774514"
+            alt="Hospital Building"
+        >
+
+        <img
+            src="https://images.unsplash.com/photo-1579154204601-01588f351e67"
+            alt="Medical Equipment"
+        >
+
+        <img
+            src="https://images.unsplash.com/photo-1582750433449-648ed127bb54"
+            alt="Doctor Team"
+        >
+
+    </div>
+
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section>
+
+    <h2>Patient Feedback</h2>
+
+    <div class="testimonials">
+
+        <div class="testimonial-box">
+
+            <p>
+                “The doctors were supportive and professional throughout my treatment.”
+            </p>
+
+            <h4>- Daniel</h4>
+
+        </div>
+
+        <div class="testimonial-box">
+
+            <p>
+                “Excellent facilities with fast emergency response services.”
+            </p>
+
+            <h4>- Isabella</h4>
+
+        </div>
+
+        <div class="testimonial-box">
+
+            <p>
+                “Very clean hospital environment and friendly healthcare staff.”
+            </p>
+
+            <h4>- Ryan</h4>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- JAVASCRIPT -->
+<script>
+function openForm(){
+    document.getElementById("overlay").style.display = "flex";
+}
+
+function closeForm(){
+    document.getElementById("overlay").style.display = "none";
+}
+
+// FORM SUBMIT
+document.getElementById("consultationForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+
+    alert("Consultation Booked Successfully! Thank you " + name);
+
+    this.reset();
+    closeForm();
+});
+</script>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>© 2026 NewLife Care Hospital</p>
+
+    <p>Email : newlifecare@gmail.com</p>
+
+    <p>Phone : +91 9988776655</p>
+
+</footer>
+
+</body>
+
+</html>
