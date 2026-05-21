@@ -39,31 +39,28 @@ header{
     position:fixed;
     width:100%;
     top:0;
-    z-index:1000;
-    box-shadow:0 3px 10px rgba(0,0,0,0.2);
+    left:0;
+    z-index:9999; /* IMPORTANT */
 }
 
+/* LOGO */
 .logo{
     font-size:30px;
     font-weight:bold;
     color:#ffd166;
 }
 
-/* NAV (DESKTOP) */
+/* NAV DESKTOP */
 nav{
     display:flex;
     gap:20px;
 }
 
+/* LINKS */
 nav a{
     text-decoration:none;
     color:white;
     font-weight:bold;
-    transition:0.3s;
-}
-
-nav a:hover{
-    color:#ffd166;
 }
 
 /* HAMBURGER */
@@ -72,8 +69,37 @@ nav a:hover{
     font-size:30px;
     cursor:pointer;
     color:white;
+    z-index:10000;
 }
 
+/* MOBILE */
+@media screen and (max-width:767px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    nav{
+        display:none;
+        position:fixed;   /* IMPORTANT FIX */
+        top:70px;
+        left:0;
+        width:100%;
+        background:#004e64;
+        flex-direction:column;
+        text-align:center;
+        z-index:9998;
+    }
+
+    nav.active{
+        display:flex;
+    }
+
+    nav a{
+        padding:15px;
+        border-top:1px solid rgba(255,255,255,0.1);
+    }
+}
 /* ================= HERO ================= */
 
 .hero{
