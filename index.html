@@ -572,6 +572,40 @@ footer{
     }
 }
 
+    /* HAMBURGER ICON */
+.menu-toggle{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+    color:white;
+}
+
+/* MOBILE NAV */
+@media screen and (max-width: 767px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    nav{
+        display:none;
+        flex-direction:column;
+        width:100%;
+        background:#004e64;
+        padding:15px 0;
+    }
+
+    nav.active{
+        display:flex;
+    }
+
+    nav a{
+        padding:10px;
+        text-align:center;
+        width:100%;
+        border-top:1px solid rgba(255,255,255,0.1);
+    }
+}
 /* =====================================================
    MOBILE (481px - 767px)
 ===================================================== */
@@ -714,7 +748,12 @@ footer{
         New Life Care
     </div>
 
-    <nav>
+    <!-- TOGGLE BUTTON -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+        ☰
+    </div>
+
+    <nav id="navLinks">
 
         <a href="#home">Home</a>
         <a href="#about">About</a>
@@ -1122,6 +1161,9 @@ document.getElementById("consultationForm").addEventListener("submit", function(
     this.reset();
     closeForm();
 });
+    function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+}
 </script>
 
 <!-- FOOTER -->
